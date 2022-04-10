@@ -1,7 +1,7 @@
 package FunctionalTest.Pages;
 
 import FunctionalTest.Fixtures.PageObject;
-import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,7 +22,8 @@ public class LoginPage extends PageObject {
   private WebElement username;
 
   @FindBy(id = "password")
-  private WebElement password;
+  private WebElement password, enterButton;
+
 
   @FindBy(xpath = "//button[contains(text(),'AKCEPTUJĘ I PRZECHODZĘ DO SERWISU')]")
   private WebElement cookie_button;
@@ -36,7 +37,6 @@ public class LoginPage extends PageObject {
 
   @FindBy(xpath = "//*[@id=\"stgMain\"]/div/div/div[1]/form/div[3]/span")
   private WebElement alertWarning;
-
 
   public void enterValidUsername(){
     this.username.sendKeys(VALID_LOGIN);
@@ -64,6 +64,10 @@ public class LoginPage extends PageObject {
 
   public void verifyAlertWarning(){
     this.alertWarning.isDisplayed();
+  }
+
+  public void clickEnter(){
+    this.enterButton.sendKeys(Keys.ENTER);
   }
 
 

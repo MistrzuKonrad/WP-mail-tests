@@ -2,7 +2,6 @@ package FunctionalTest.Testcases;
 
 import FunctionalTest.Fixtures.Utils;
 import FunctionalTest.Pages.LoginPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -54,7 +53,6 @@ public class VerifyLogin {
     String actualUrl= driver.getCurrentUrl();
     Assert.assertEquals(actualUrl, expectedUrl);
 
-
   }
 
   @Test(testName = "Verify the messages for invalid login")
@@ -96,8 +94,22 @@ public class VerifyLogin {
     String expectedUrl="https://poczta.wp.pl/odzyskaj";
     String actualUrl= driver.getCurrentUrl();
     Assert.assertEquals(actualUrl,expectedUrl);
+  }
 
+  @Test(testName = "Verify if the ‘Enter’ key of the keyboard is working correctly on the login page")
+  public static void verifyEnterKey(){
 
+    driver.get(Utils.BASE_URL);
+    LoginPage loginPage = new LoginPage(driver);
+    loginPage.enterValidUsername();
+    loginPage.enterValidPassword();
+    loginPage.pressCookieButton();
+
+    loginPage.clickEnter();
+
+    String expectedUrl="https://poczta.wp.pl/w/#/mails/?label=1";
+    String actualUrl= driver.getCurrentUrl();
+    Assert.assertEquals(actualUrl, expectedUrl);
   }
 
 
