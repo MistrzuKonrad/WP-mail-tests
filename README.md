@@ -24,7 +24,7 @@
 if you want to run a test in github action, follow the instructions below
 https://docs.gitlab.com/ee/ci/examples/end_to_end_testing_webdriverio/
 
-##Test cases
+## Test cases
 * Verify if a user will be able to login with a valid username and valid password
 * Verify if a user cannot login with a valid username and an invalid password 
 * Verify the messages for invalid login
