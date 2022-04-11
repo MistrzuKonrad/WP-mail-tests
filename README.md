@@ -1,4 +1,4 @@
-# Testing web https://profil.wp.pl/login/login.html 
+# Functional tests https://profil.wp.pl/login/login.html 
 
 ## Getting Started
 
